@@ -7,8 +7,8 @@ I picked up these pieces of modern C++ bits for just two reasons:
 - Artistry can be derived from the structures implemented using them.
 ## C++ 17
 I'm primarily concerned with C++ 17 as it is well implemented across 
-different compilers (Clang, GCC, etc), whereas features in C++ 20 are still in the waiting status for some compilers.\
+different compilers (Clang, GCC, etc), whereas features in C++ 20 are still in the waiting status for some compilers.
 ## Compiler
-I use the Apple Clang g++ compiler with flag ```-std=c++17```.\
+I use the Apple Clang g++ compiler with flag ```-std=c++17```.
 ## Tests
 Currently I plan to write sample header files for each case scenarios and a ```test()``` function along provided for the test driver.
