@@ -34,17 +34,22 @@ auto wrapper(const T &data) -> Maybe<T>
     return data.isValid();
 }
 
-void testWrapper()
+void testWrapper(const Data &data)
 {
-    Data dataA = {1};
-    Data dataB = {0};
-    if (std::holds_alternative<Data>(wrapper<Data>(dataA)))
+    if (std::holds_alternative<Data>(wrapper<Data>(data)))
     {
-        printf("Data a holds an integer > 0!");
+        printf("Data holds an integer > 0!\n");
+    }
+    else
+    {
+        printf("Data holds an integer <= 0!\n");
     }
 }
 
 void test()
 {
-    testWrapper();
+    Data dataA = {1};
+    Data dataB = {0};
+    testWrapper(dataA);
+    testWrapper(dataB);
 }
