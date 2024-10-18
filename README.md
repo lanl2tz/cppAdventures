@@ -1,4 +1,5 @@
-# Adventures in modern C++ by lanl2tz
+# <p align="center">Adventures in modern C++ by ***lanl2tz***</p>
+---
 In this repository I aim to jot down fragmental stuff that I 
 picked up from modern features of C++ (mainly from C++11 and 
 its supplementary patches C++14 and C++17).\
