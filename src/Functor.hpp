@@ -4,7 +4,6 @@
 
 #include <vector>
 #include <functional>
-#include <stdio.h>
 #include <iostream>
 
 template <typename T1>
