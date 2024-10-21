@@ -1,5 +1,6 @@
 /**
- * Functor type in C++.
+ * A functor type in C++ implemented using std::function<outType(inType)>.
+ * Note: this is not the same typeclass as in Haskell! Just an instantiation.
  */
 
 #include <vector>
@@ -38,14 +39,6 @@ public:
         std::cout << std::endl;
     }
 };
-
-template <typename T1, typename T2>
-auto &operator<(const T1 &left, const Functor<T2> &right)
-{
-    auto newFunctor = Functor<T1>();
-    newFunctor.push(left);
-    return newFunctor;
-}
 
 // Example Functor Test
 void testFunctor(const std::vector<int> list)
