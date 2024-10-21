@@ -39,6 +39,14 @@ public:
     }
 };
 
+template <typename T1, typename T2>
+auto &operator<(const T1 &left, const Functor<T2> &right)
+{
+    auto newFunctor = Functor<T1>();
+    newFunctor.push(left);
+    return newFunctor;
+}
+
 // Example Functor Test
 void testFunctor(const std::vector<int> list)
 {
