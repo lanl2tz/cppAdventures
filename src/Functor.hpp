@@ -1,6 +1,8 @@
 /**
  * A functor type in C++ implemented using std::function<outType(inType)>.
  * Note: this is not the same typeclass as in Haskell! Just an instantiation.
+ * To make a proper typeclass in C++, we need concept from C++ 20, which is
+ * not of our concern here in this repository.
  */
 
 #include <vector>
@@ -20,7 +22,7 @@ public:
     }
 
     template <typename T2>
-    auto fmap(const std::function<T2(T1)> &func)
+    auto fmap(const std::function<T2(T1)> &func) const
     {
         Functor<T2> functor;
         for (const T1 &data : this->dataContainer)
@@ -28,6 +30,12 @@ public:
             functor.push(func(data));
         }
         return functor;
+    }
+
+    template <typename T2>
+    static auto fmap(const std::function<T2(T1)> &func, const Functor<T1> &f)
+    {
+        return f.fmap(func);
     }
 
     void printContainer() const
@@ -49,6 +57,7 @@ void testFunctor(const std::vector<int> list)
         myFunctor.push(data);
     }
     myFunctor.fmap<std::string>((std::function<std::string(int)>)[](const int &a) { return std::to_string(a); }).printContainer();
+    Functor<int>::fmap<std::string>((std::function<std::string(int)>)[](const int &a) { return std::to_string(a); }, myFunctor).printContainer();
 }
 
 void test()
