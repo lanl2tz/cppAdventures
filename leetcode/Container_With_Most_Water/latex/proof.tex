@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath} 
+\title{Two Pointer Method}
+\author{lanl2tz}
+\begin{document}
+\maketitle
+\section*{Question:}
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+Return the maximum amount of water a container can store.
+
+Notice that you may not slant the container.
+
+\section*{Answer:}
+Let $i = 0$, $j = \text{height.size()} - 1$, $M = \textbf{Area}(i, j)$.\\
+Then execute the following loop:
+\subsection*{Loop:}
+If $i >= j$, exit loop.\\
+If $\text{height}_{i} <= \text{height}_{j}$, let $i = i + 1$.\\
+Else if $\text{height}_{i} > \text{height}_{j}$, let $j = j - 1$.\\
+If $\textbf{Area}(i, j) > M$, let $M = \textbf{Area}(i, j)$.
+\section*{Proof:}
+
+
+\end{document}
