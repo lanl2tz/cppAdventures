@@ -1,6 +1,11 @@
 \documentclass{article}
 \usepackage{amsfonts}
-\usepackage{amsmath} 
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon} 
+
 \title{Two Pointer Method}
 \author{lanl2tz}
 \begin{document}
@@ -23,6 +28,11 @@ If $\text{height}_{i} <= \text{height}_{j}$, let $i = i + 1$.\\
 Else if $\text{height}_{i} > \text{height}_{j}$, let $j = j - 1$.\\
 If $\textbf{Area}(i, j) > M$, let $M = \textbf{Area}(i, j)$.
 \section*{Proof:}
+Let $L \defeq \text{height.size}()$, $h_i \defeq \text{height}_{i} \forall 0\leq i\leq L$, and $A(i, j) \defeq \textbf{Area}(i, j)$.\\
+Then $\exists 0\leq i_{max} < j_{max} \leq L$ such that $A_{max} = A(i_{max}, j_{max}) = \underset{ 0\leq i < j \leq L}{sup}\{A(i,j)\}$.\\
+Since $A_{max}$ is the maximum, no $i' < i_{max}$ can have $h_{i'} \geq h_{i_{max}}$, otherwise $A(i', j_{max}) > A_{max}$.\\
+Similarly, no $j' > j_{max}$ can have $h_{j'} \geq h_{j_{max}}$, otherwise $A(i_{max}, j') > A_{max}$.\\
+Therefore $\forall i' < i_{max}$, $h_{i'} < h_{i_{max}}$, and $\forall j' > j_{max}$, $h_{j'} < h_{j_{max}}$.\\
 
 
 \end{document}
